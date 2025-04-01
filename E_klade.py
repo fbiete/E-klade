@@ -34,7 +34,7 @@ def init_databases():
             is_admin INTEGER DEFAULT 0
         )
     ''')
-    c.execute("SELECT * FROM users WHERE username=?", ("fbiete",))
+    c.execute("SELECT * FROM users WHERE username=?", ("admin",))
     if c.fetchone() is None:
         c.execute("INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)",
                   ("admin", hash_password("admin123"), 1))
